@@ -1,0 +1,20 @@
+$width: 100%;
+$height: 100%;
+/* color相关--------start */
+$theme-color: #0463a2; // 项目header 的颜色
+$link-text-color: #0000ff; // 超链接样式的文字颜色
+
+$el-table-text-color: rgb(99, 103, 143); // 表格默认文字的颜色
+$el-table-th-bg: rgb(218, 230, 255); // table 表格header背景色
+
+$el-primary-color: rgb(112, 153, 245); // element-ui primary 类型的颜色
+$el-simple-color: rgb(112, 153, 245); // element-ui simple 类型的颜色
+/* color相关--------end */
+
+
+/* 表单相关--------start */
+/* 表单相关--------end */
+
+/* el-table 相关--------start */
+$table-pagination-height: 50px;
+/* el-table 相关--------end */

@@ -1,0 +1,124 @@
+@mixin Font($fontSize: '12px', $fontFamily: 'PingFangSC-Regular, PingFang SC', $fontWeight: "normal") {
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    font-weight: $fontWeight;
+}
+
+@mixin WH($width: 100%, $height: 100%) {
+    width: $width;
+    height: $height;
+}
+
+@mixin Border($border: '', $radius: '') {
+    border: $border;
+    border-radius: $radius;
+}
+
+// 设置flex样式
+// @include flex(center,center,column);
+// @include flex(center,center,column){
+//     flex-wrap:nowrap;
+// };
+// @include flex($alignItems: center, $justifyContent: center, $direction: column);
+@mixin flex($alignItems: initial, $justifyContent: initial, $direction: initial) {
+    display: flex;
+
+    @if($alignItems  !=initial) {
+        align-items: $alignItems;
+    }
+
+    @if($justifyContent  !=initial) {
+        justify-content: $justifyContent;
+    }
+
+    @if($direction  !=initial) {
+        flex-direction: $direction;
+    }
+
+    @content;
+}
+
+// 设置background
+// @include background(
+//     $color: initial,
+//     $image: '@/assets/url/common/logo.png',
+//     $size: initial,
+//     $position: center center,
+//     $repeat: no-repeat
+// );
+// @include background(initial, '@/assets/url/common/logo.png', initial, center center, no-repeat);
+@mixin background($color: initial, $image: initial, $size: initial, $position: initial, $repeat: initial, $attachment: initial) {
+    @if($color  !=initial) {
+        background-color: $color;
+    }
+
+    @if($image  !=initial) {
+        background-image: url($image);
+    }
+
+    @if($size  !=initial) {
+        background-size: $size;
+    }
+
+    @if($position  !=initial) {
+        background-position: $position;
+    }
+
+    @if($repeat  !=initial) {
+        background-repeat: $repeat;
+    }
+
+    @if($attachment  !=initial) {
+        background-attachment: $attachment;
+    }
+
+    @content;
+}
+
+// 设置border-radius
+@mixin radius($radius: initial, $LT: initial, $RT: initial, $RB: initial, $LB: initial) {
+    @if($radius  !=initial) {
+        border-radius: $radius;
+    }
+
+    @if($LT  !=initial) {
+        border-top-left-radius: $LT;
+    }
+
+    @if($RT  !=initial) {
+        border-top-right-radius: $RT;
+    }
+
+    @if($RB  !=initial) {
+        border-bottom-right-radius: $RB;
+    }
+
+    @if($LB  !=initial) {
+        border-bottom-left-radius: $LB;
+    }
+
+    @content;
+}
+
+// 定位样式
+@mixin position($L: initial, $T: initial, $R: initial, $B: initial) {
+    position: absolute;
+
+    @if($L  !=initial) {
+        left: $L;
+    }
+
+    @if($T  !=initial) {
+        top: $T;
+    }
+
+    @if($R  !=initial) {
+        right: $R;
+    }
+
+    @if($B  !=initial) {
+        bottom: $B;
+    }
+
+    @content;
+}
