@@ -1,22 +1,45 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from "path"
 
+// 声明一下process, 否则报红提示
+declare var process:any;
+// 添加loadEnv 可以在vite.config.js 中可以使用.env 中的配置
+const isProduction = process.env.NODE_ENV === 'production'// https://vitejs.dev/config/
+console.log(isProduction);
+
+
+// import vue from '@vitejs/plugin-vue'
+// import path from "path"
+// import vueI18n from '@intlify/vite-plugin-vue-i18n'
+// import styleImport from "vite-plugin-style-import";
+// import ViteComponents, { AntDesignVueResolver } from 'vite-plugin-components';
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
+export default ({mode})=>{
+  // 通过loadEnv获取.env.production中声明的变量
+  const processConfig = loadEnv(mode,process.cwd());
+  console.log(processConfig);
+  return defineConfig({
+    plugins: [vue()],
+    resolve: {
+        alias: {
+            // 支持页面使用@/引入、但是ctrl加左键无法快捷找到文件
+            '@': path.resolve(__dirname, 'src')
+        }
+    },
     server: {
       https: false, // 是否开启 https
       open: false, // 是否自动在浏览器打开
       port: 3000, // 端口号
       host: "0.0.0.0",
       proxy: {
-          // "/api":{
-          //     target: "https://webapi.xfyun.cn/v1/service/v1/", // 图片转文字
-          //     changeOrigin: true,
-          //     secure: false, // 如果是https接口，需要配置这个参数
-          //     // ws: true, //websocket支持
-          //     rewrite: (path) => path.replace(/^\/api/, ""),
-          // },
+          "/api":{
+              target: "http://172.20.104.138:8076/", // 图片转文字
+              changeOrigin: true,
+              secure: false, // 如果是https接口，需要配置这个参数
+              // ws: true, //websocket支持
+              rewrite: (path) => path.replace(/^\/api/, ""),
+          },
           // "/ocrapi": {
           //     target: "http://120.53.239.34/", // 录音转文字
           //     changeOrigin: false,
@@ -36,17 +59,9 @@ export default defineConfig({
           // }
       },
   }
-})
+  })
+}
 
-
-// import {defineConfig,loadEnv} from 'vite'
-// import vue from '@vitejs/plugin-vue'
-// import path from "path"
-// import vueI18n from '@intlify/vite-plugin-vue-i18n'
-// import styleImport from "vite-plugin-style-import";
-// import ViteComponents, { AntDesignVueResolver } from 'vite-plugin-components';
-// // 添加loadEnv 可以在vite.config.js 中可以使用.env 中的配置
-// const isProduction = process.env.NODE_ENV === 'production'// https://vitejs.dev/config/
 // export default ({mode})=>{
 //     const processConfig = loadEnv(mode,process.cwd());
 //     return defineConfig({
