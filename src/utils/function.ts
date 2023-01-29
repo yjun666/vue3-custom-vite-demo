@@ -140,9 +140,9 @@ const cached = (fn: any) => {
 /**
  * Ensure a function is called only once.
  */
-function once(fn: any) {
+const once = (fn: any) => {
     var called = false;
-    return function () {
+    return function onceFnBody() {
         if (!called) {
             called = true;
             fn.apply(this, arguments);

@@ -41,23 +41,6 @@ export default ({mode})=>{
               // ws: true, //websocket支持
               rewrite: (path) => path.replace(/^\/api/, ""),
           },
-          // "/ocrapi": {
-          //     target: "http://120.53.239.34/", // 录音转文字
-          //     changeOrigin: false,
-          //     secure: false, // 如果是https接口，需要配置这个参数
-          //     // ws: true, //websocket支持
-          //     rewrite: (path) => path.replace(/^\/api/, ""),
-          // },
-          // "/managerSms": {
-          //     target: "http://49.232.143.65:9008", //系统管理配置目前接口
-          //     changeOrigin: false,
-          //     rewrite: (path) => path.replace(/^\/managerSms/, ""),
-          // },
-          // "/audio": {
-          //     target: "http://192.168.10.149:9009", //系统管理配置目前接口
-          //     changeOrigin: false,
-          //     rewrite: (path) => path.replace(/^\/audio/, "/audio"),
-          // }
       },
   }
   })
