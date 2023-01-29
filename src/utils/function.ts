@@ -58,7 +58,7 @@ const isObject = (param: any) => {
  * @returns {Boolean}
  */
 const toNumber = (val: any) => {
-    var n = parseFloat(val);
+    const n = parseFloat(val);
     return isNaN(n) ? val : n;
 }
 
@@ -189,7 +189,7 @@ const flat = (arr: any[]): any[] => arr.reduce((a: any, b: any) => Array.isArray
 const getParentEle = (ele: any, parent: string, count = 8): any => {
     count--;
     const { is } = Object;
-    if (is(ele.tagName, 'BODY') || count === 0) false;
+    if (is(ele.tagName, 'BODY') || count === 0) return false;
 
     const str = parent.slice(1);
     // 根据className查找 还是根据 id查找 还是根据tagName查找
@@ -278,9 +278,9 @@ const average = (args: any[]) => args.reduce((a, b) => a + b) / args.length;
  * @param {string} format 
  * @returns 
  */
-const formatDate = (date: Date | string | number = 0, format: string = 'y-M-d') => {
-    if (new Date(date).toDateString() === 'Invalid Date') return `Invalid Date`;
-    if (format === 'timestamp') return new Date().getTime();
+const formatDate = (date: Date | string | number, format: string = 'y-M-d') => {
+    if (Object.is(new Date(date).toDateString(), 'Invalid Date') || ['undefined', 'null'].some(x => typeOf(date) === x)) return date;
+    if (format === 'timestamp') return new Date(date).getTime();
     date = date ? new Date(date) : new Date();
     const obj: { [key: string]: string } = {
         'y': String(date.getFullYear()), // 年
@@ -296,11 +296,11 @@ const formatDate = (date: Date | string | number = 0, format: string = 'y-M-d') 
 
 /**
  * 添加默认空数组
- * @param {*} arr 如果arr不存在需要默认空数组解决 undefined 的 map|filter 等方法报错
+ * @param {*} _ 如果arr不存在需要默认空数组解决 undefined 的 map|filter 等方法报错
  * @returns 
  */
-const defaultArray = (arr: any[]) => {
-    return arr || [];
+ const defArr = (_:any[]) => {
+    return _ || [];
 }
 
 // 区分上传的文件类型
@@ -546,7 +546,7 @@ export {
     isWeekday, // 判断日期是否为工作日
     average, // 平均数
     formatDate, // 格式化日期
-    defaultArray, // 添加默认空数组
+    defArr, // 添加默认空数组
     distinguishFileTypes, // 区分文件类型
     downloadOrPreview, // 下载和预览文件
     dataURLtoBlob, // base64 url 转为blob类型
