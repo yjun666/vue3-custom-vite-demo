@@ -4,6 +4,7 @@ import path from "path"
 
 // 声明一下process, 否则报红提示
 declare var process:any;
+declare var __dirname:any;
 // 添加loadEnv 可以在vite.config.js 中可以使用.env 中的配置
 const isProduction = process.env.NODE_ENV === 'production'// https://vitejs.dev/config/
 console.log(isProduction);

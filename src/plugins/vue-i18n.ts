@@ -6,14 +6,14 @@ const localeData = {
     legacy: true, // composition API
     locale: 'zh',
     messages: {
-        zh: require('../assets/language/zh.json'), // 语言包所在的文件位置
-        en: require('../assets/language/en.json')
+        zh: import.meta.glob('../assets/language/zh.json'), // 语言包所在的文件位置
+        en: import.meta.glob('../assets/language/en.json')
     },
     // // 调用方法
     $t(key: any) {
         console.log(key);
-    // debugger;
-    // return (this as any).messages[this.locale][key];
+        // debugger;
+        // return (this as any).messages[this.locale][key];
     }
 }
 
