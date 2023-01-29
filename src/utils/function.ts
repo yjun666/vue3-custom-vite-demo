@@ -402,6 +402,7 @@ const diffEnvFun = (types: string[], cb: any) => {
  * 替空， 解决全局表格内展示空字段时 默认替换的字段
  */
 const supplement = (str: any, code: string) => {
+    console.log(str);
     if (!str && str !== 0) {
         return code || supplementCode;
     } else {

@@ -1,6 +1,7 @@
 <template>
   <!-- 页面打印及调试 -->
   <div>
+    <div>$utils.supplement()==== {{ $utils.supplement("") }}</div>
     <div>$utils.uuid()==== {{ uuid() }}</div>
     <div>VITE_CUSTOM_TEST==={{ VITE_CUSTOM_TEST(1, 2) }}</div>
     <div>NODE_ENV==={{ NODE_ENV }}</div>
