@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "strict": false,
+    "strict": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -14,10 +14,7 @@
       "DOM"
     ],
     "skipLibCheck": true,
-    "noEmit": true,
-    "types": [
-      "node"
-    ]
+    "noEmit": true
   },
   "include": [
     "src/**/*.ts",
