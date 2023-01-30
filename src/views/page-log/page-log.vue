@@ -3,7 +3,7 @@
 	<div>
 		<slot :data="slotItem"
 			name="slotName"></slot>
-		<div>$utils.supplement()==== {{ $utils.supplement("") }}</div>
+		<div>$utils.supplement()==== {{ supplement("") }}</div>
 		<div>$utils.uuid()==== {{ uuid() }}</div>
 		<div>VITE_CUSTOM_TEST==={{ VITE_CUSTOM_TEST(1, 2) }}</div>
 		<div>NODE_ENV==={{ NODE_ENV }}</div>
@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { getCurrentInstance, computed, ref, inject } from 'vue';
 const instance: any = getCurrentInstance();
-const { uuid, formatDate } = instance.appContext.config.globalProperties.$utils;
+const { uuid, formatDate, supplement } = instance.appContext.config.globalProperties.$utils;
 console.log('import.meta.env.VITE_CUSTOM_TEST===' + import.meta.env.VITE_CUSTOM_TEST);
 console.log('import.meta.env.MODE===' + import.meta.env.MODE);
 console.log('instance.appContext.config.globalProperties.$utils.uuid()===' + uuid());
