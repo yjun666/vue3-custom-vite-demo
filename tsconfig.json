@@ -14,14 +14,19 @@
       "DOM"
     ],
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    // 解决vite下 使用@别名引入模块的报错问题
+    "paths":{
+        "@": ["./src"],
+        "@/*": ["./src/*"],
+    }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
-  ],
+, "src/store/index.js"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

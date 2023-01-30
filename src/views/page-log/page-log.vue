@@ -21,7 +21,7 @@ console.log('import.meta.env.MODE===' + import.meta.env.MODE);
 console.log('instance.appContext.config.globalProperties.$utils.uuid()===' + uuid());
 console.log('instance.appContext.config.globalProperties.$utils.formatDate()===' + formatDate(new Date(), 'y-M-d h:m:s t'));
 let VITE_CUSTOM_TEST = computed(() => {
-	return (a, b) => {
+	return (a: any, b: any) => {
 		console.log(a, b);
 		return import.meta.env.VITE_CUSTOM_TEST;
 	};

@@ -1,25 +1,35 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import getters from './getters'
+import { createLogger, createStore } from 'vuex';
+import VuexPersist from 'vuex-persist'; // 持续化存储
+import createPersistedState from 'vuex-persistedstate'; // 持续化存储第二种方式
+import * as Cookies from 'js-cookie';
 
-Vue.use(Vuex)
+// 永久保存数据到localstorage，刷新获取
+const initVuexPersist = new VuexPersist({
+    key: 'vuex',
+    storage: window.localStorage
+});
 
-// https://webpack.js.org/guides/dependency-management/#requirecontext
-const modulesFiles = require.context('./modules', true, /\.js$/)
-
-// you do not need `import user from './modules/user'`
-// it will auto require all vuex module from modules file
-const modules = modulesFiles.keys().reduce((modules, modulePath) => {
-  // set './user.js' => 'user'
-  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
-  const value = modulesFiles(modulePath)
-  modules[moduleName] = value.default
-  return modules
-}, {})
-
-const store = new Vuex.Store({
-  modules,
-  getters
-})
-
-export default store
+export default createStore({
+    state: {},
+    mutations: {},
+    actions: {},
+    modules: {},
+    plugins: [
+    // initVuexPersist.plugin,
+        createLogger(),
+        createPersistedState({
+            storage: {
+                getItem: (key) => localStorage.getItem(key),
+                // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON.
+                setItem: (key, value) =>
+                    localStorage.setItem(key, value),
+                removeItem: (key) => localStorage.removeItem(key)
+                // getItem: (key) => Cookies.get(key),
+                // // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON.
+                // setItem: (key, value) =>
+                //   Cookies.set(key, value, { expires: 7, secure: true }),
+                // removeItem: (key) => Cookies.remove(key)
+            }
+        })
+    ]
+});
