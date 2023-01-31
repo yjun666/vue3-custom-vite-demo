@@ -1,6 +1,9 @@
 <template>
 	<!-- 页面打印及调试 -->
 	<div>
+		<div class="test-common-scss display-none">asdflkasjdf</div>
+		<div class="test-public-scss">asdflkasjdf</div>
+		<i class="icon iconfont icon-user"></i>
 		<slot :data="slotItem"
 			name="slotName"></slot>
 		<div>$utils.supplement()==== {{ supplement("") }}</div>
@@ -35,4 +38,11 @@ setInterval(() => {
 }, 1000);
 </script>
 <style lang="scss" scoped>
+.test-public-scss {
+	color: $link-text-color;
+	@extend %flex-center-middle;
+	@include flex() {
+		flex-direction: column;
+	}
+}
 </style>

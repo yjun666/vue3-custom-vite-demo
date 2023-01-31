@@ -10,9 +10,10 @@ import { setGlobal } from '@/plugins/v-global';
 // import { setupI18n } from '@/plugins/vue-i18n';
 
 import './style.css'
-import.meta.glob(`@/assets/style/reset.scss`); // 导入重置全局样式文件
-import.meta.glob(`@/assets/style/common.scss`); // 导入全局样式文件
-import '@/assets/fonts/iconfont.css';
+// 在vite项目中需要使用import 不能使用require 使用import引入scss文件需要使用小括号
+import ('@/assets/fonts/iconfont.css');
+import (`@/assets/style/reset.scss`); // 导入重置全局样式文件
+import (`@/assets/style/common.scss`); // 导入全局样式文件
 
 // 初始化app
 const app = createApp(App);

@@ -22,6 +22,15 @@ export default ({mode})=>{
   console.log(processConfig);
   return defineConfig({
     plugins: [vue()],
+    css: {
+        preprocessorOptions: {
+            // 全局样式引入
+            scss: {
+                additionalData: `@import "./src/assets/style/public.scss";`,
+                javascriptEnabled: true
+            }
+        }
+    },
     resolve: {
         alias: {
             // 支持页面使用@/引入、但是ctrl加左键无法快捷找到文件
@@ -29,20 +38,20 @@ export default ({mode})=>{
         }
     },
     server: {
-      https: false, // 是否开启 https
-      open: false, // 是否自动在浏览器打开
-      port: 3000, // 端口号
-      host: "0.0.0.0",
-      proxy: {
-          "/api":{
-              target: "http://172.20.104.138:8076/", // 图片转文字
-              changeOrigin: true,
-              secure: false, // 如果是https接口，需要配置这个参数
-              // ws: true, //websocket支持
-              rewrite: (path) => path.replace(/^\/api/, ""),
-          },
-      },
-  }
+        https: false, // 是否开启 https
+        open: false, // 是否自动在浏览器打开
+        port: 3000, // 端口号
+        host: "0.0.0.0",
+        proxy: {
+            "/api":{
+                target: "http://172.20.104.138:8076/", // 图片转文字
+                changeOrigin: true,
+                secure: false, // 如果是https接口，需要配置这个参数
+                // ws: true, //websocket支持
+                rewrite: (path) => path.replace(/^\/api/, ""),
+            },
+        },
+    }
   })
 }
 
