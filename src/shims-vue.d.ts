@@ -18,4 +18,5 @@ declare module "file-saver";
 declare module "vue-i18n";
 declare module "crypto-js";
 declare module "moment";
+declare module "nprogress";
 

@@ -43,4 +43,8 @@ import (`@/assets/style/common.scss`); // 导入全局样式文件
 
 8. router 中的重置路由 `resetRouter` 中的 `router = newRouter` 是否存在问题待验证
 
-9. 
+9. 尽量更多的使用 `` 模板字符串拼接变量和字符串， 避免后期打包报错
+```
+console.log(`import.meta.env.VITE_CUSTOM_TEST===${import.meta.env.VITE_CUSTOM_TEST}`); // 打包不报错
+console.log('import.meta.env.VITE_CUSTOM_TEST==='+ import.meta.env.VITE_CUSTOM_TEST); // 打包报错
+```
