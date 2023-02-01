@@ -1,0 +1,16 @@
+{
+	"test": {
+		"name": "jun_yang"
+	},
+	"changeLanguage": {
+		"btnText": "change language",
+		"zh": "zh",
+		"en": "en"
+	},
+	"list": {
+		"first": "first",
+		"second": "second",
+		"third": "third",
+		"fourth": "fourth"
+	}
+}

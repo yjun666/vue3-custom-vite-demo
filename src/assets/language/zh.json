@@ -1,0 +1,16 @@
+{
+	"test": {
+		"name": "杨俊"
+	},
+	"changeLanguage": {
+		"btnText": "切换中英文",
+		"zh": "中文",
+		"en": "英文"
+	},
+	"list": {
+		"first": "第一",
+		"second": "第二",
+		"third": "第三",
+		"fourth": "第四"
+	}
+}

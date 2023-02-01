@@ -1,0 +1,4 @@
+包含组合式的setup写法
+包含选项式的mixin写法
+
+两种都属于mixin一类， 纯setup开发不能注入mixin

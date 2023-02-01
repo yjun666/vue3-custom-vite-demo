@@ -1,6 +1,7 @@
 <template>
 	<!-- 页面打印及调试 -->
 	<div>
+        <Home></Home>
 		<div class="test-common-scss display-none">asdflkasjdf</div>
 		<div class="test-public-scss">asdflkasjdf</div>
 		<i class="icon iconfont icon-user"></i>
@@ -16,6 +17,7 @@
 	</div>
 </template>
 <script lang="ts" setup>
+import Home from '@/views/home/home.vue';
 import { getCurrentInstance, computed, ref, inject } from 'vue';
 const instance: any = getCurrentInstance();
 const { uuid, formatDate, supplement } = instance.appContext.config.globalProperties.$utils;

@@ -4,8 +4,18 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
-declare module 'vue-giant-tree';
-declare module '@form-create/ant-design-vue';
-declare module 'html-docx-js/dist/html-docx';
-declare module 'file-saver';
-declare module 'crypto-js';
+
+declare module "js-cookie";
+declare module "lodash";
+declare module "vuex-persist";
+declare module "vuex-module-decorators";
+declare module "rxjs";
+declare module "uuid";
+declare module "xe-utils";
+declare module "element-plus";
+declare module "html-docx-js/dist/html-docx";
+declare module "file-saver";
+declare module "vue-i18n";
+declare module "crypto-js";
+declare module "moment";
+
