@@ -49,4 +49,6 @@ console.log(`import.meta.env.VITE_CUSTOM_TEST===${import.meta.env.VITE_CUSTOM_TE
 console.log('import.meta.env.VITE_CUSTOM_TEST==='+ import.meta.env.VITE_CUSTOM_TEST); // 打包报错
 ```
 
-10. 
+10. vuex引用报错问题， 如果vuex内部module使用报错， 可先把 `localStorage.getItem('vuex') !== null` 中的vuex修改为vuex2, 然后刷新页面然后再修改为vuex, 查看是否解决, 可能复制粘贴代码存在问题
+
+11. 
