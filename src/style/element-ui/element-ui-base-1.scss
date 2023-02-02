@@ -1,0 +1,153 @@
+body {
+
+    // element-ui 的样式第一款
+
+    /* el-table 相关--------------------------------------------------start */
+    .el-table {
+
+        th,
+        td {
+            height: 30px;
+
+            .cell {
+                color: $el-table-text-color;
+                padding-left: 3px !important;
+                padding-right: 3px !important;
+            }
+        }
+
+        th.el-table__cell {
+            background-color: $el-table-th-bg;
+        }
+
+        thead.is-group {
+            th.el-table__cell {
+                background-color: $el-table-th-bg;
+            }
+
+        }
+
+        .el-table__cell {
+            padding: 0;
+        }
+
+        .cell.el-tooltip {
+
+            &>div,
+            &>section,
+            &>span,
+            &>h1,
+            &>h2,
+            &>h3,
+            &>h4,
+            &>h5,
+            &>h6,
+            &>p,
+            &>a,
+            &>img,
+            &>b,
+            &>i,
+            &>ul,
+            &>dl,
+            &>ol,
+            &>table,
+            &>canvas,
+            &>audio,
+            &>video {
+                display: inline;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    /* el-table 相关--------------------------------------------------end */
+    /* el-button 相关--------------------------------------------------start */
+    .el-button {}
+
+    .el-button--primary {}
+
+    .el-button--simple {
+        color: $el-simple-color;
+        background-color: #fff;
+        border-color: $el-simple-color;
+
+        &:hover {
+            border-color: $el-simple-color;
+        }
+    }
+
+
+    /* el-button 相关--------------------------------------------------end */
+    /* form 相关--------------------------------------------------start */
+    .el-form {
+        .el-range-separator {
+            line-height: 1.5;
+            padding: 0;
+        }
+
+        // 公共表单的样式
+        &.form-com {
+            .el-form-item {
+                margin-bottom: 10px;
+            }
+        }
+
+        // 查询表单的样式
+        &.find-form-com {
+            .el-form-item {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+                margin-bottom: 10px;
+
+                label {
+                    white-space: nowrap;
+                }
+
+                .el-form-item__content {
+                    flex: 1;
+                    line-height: 1.5;
+                }
+
+                .el-cascader,
+                .el-input-number {
+                    width: 100%;
+                }
+
+                .el-checkbox-group {
+                    display: flex;
+                    align-items: center;
+                }
+
+            }
+        }
+    }
+
+    /* form 相关--------------------------------------------------end */
+    /* radio 相关--------------------------------------------------start */
+    .el-radio,
+    .el-checkbox {
+        margin-right: 12px; // el-radio 的margin-right值;
+    }
+
+    /* radio 相关--------------------------------------------------end */
+    /* el-dialog弹窗相关--------------------------------------------------start */
+    .el-dialog__wrapper {
+        .el-dialog__header {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .el-dialog__body {
+            padding-top: 20px;
+        }
+    }
+
+    /* el-dialog弹窗相关--------------------------------------------------end */
+
+    /* 默认显示滚动条--------------------------------------------------start */
+    .el-scrollbar__bar {
+        opacity: 1;
+    }
+
+    /* 默认显示滚动条--------------------------------------------------end */
+}
