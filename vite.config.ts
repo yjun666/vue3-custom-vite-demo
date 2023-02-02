@@ -2,7 +2,6 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from "path"
 import viteCompression from 'vite-plugin-compression';
-import legacy from '@vitejs/plugin-legacy';
 
 // 声明一下process, 否则报红提示
 declare var process: any;
@@ -20,7 +19,6 @@ export default ({ mode }) => {
         base: mode === 'production' ? './' : processConfig.VITE_PUBLIC_PATH,
         plugins: [
             vue(),
-            legacy({ targets: ['defaults', 'not IE 11'] }),
             viteCompression({ ext: '.gz', algorithm: 'gzip', deleteOriginFile: false })
         ],
         build: {
@@ -45,7 +43,7 @@ export default ({ mode }) => {
             terserOptions: {
                 compress: {
                     // warnings: false,
-                    drop_console: false,  //打包时删除console
+                    drop_console: true,  //打包时删除console
                     drop_debugger: true, //打包时删除 debugger
                     // pure_funcs: ['console.log'],
                 },

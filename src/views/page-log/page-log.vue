@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<!-- 页面打印及调试 -->
-		<Home></Home>
 		<div class="test-common-scss display-none">asdflkasjdf</div>
 		<div class="test-public-scss">asdflkasjdf</div>
 		<i class="icon iconfont icon-user"></i>
@@ -18,7 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-import Home from '@/views/home/home.vue';
 import { getCurrentInstance, computed, ref, inject } from 'vue';
 // import { uuid, formatDate, supplement } from '@/utils/function'
 const instance: any = getCurrentInstance();

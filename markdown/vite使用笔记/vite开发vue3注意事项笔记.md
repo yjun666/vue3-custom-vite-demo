@@ -48,3 +48,5 @@ import (`@/assets/style/common.scss`); // 导入全局样式文件
 console.log(`import.meta.env.VITE_CUSTOM_TEST===${import.meta.env.VITE_CUSTOM_TEST}`); // 打包不报错
 console.log('import.meta.env.VITE_CUSTOM_TEST==='+ import.meta.env.VITE_CUSTOM_TEST); // 打包报错
 ```
+
+10. 
