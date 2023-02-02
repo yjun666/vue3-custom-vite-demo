@@ -1,47 +1,47 @@
+import { Action, getModule, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import { login, logout, getUserInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 import { localCache, sessionCache } from '@/utils/storage'
-import { Action, getModule, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import store from '@/store';
 @Module({
     dynamic: true,
     name: 'UserOptions',
-    namespaced: true,
+    namespaced: false,
     stateFactory: true,
     store: store,
     preserveState: localStorage.getItem('vuex') !== null // 从localstorage获取保存的vuex数据
 })
 export default class UserOptions extends VuexModule {
-    token = getToken();
-    name = '';
-    avatar = '';
-    introduction = '';
-    roles = [];
+    public token: string = 'asldkfjaslkdfjweripou';
+    public name: string = '';
+    public avatar: string = '';
+    public introduction: string = '';
+    public roles: any[] = [];
 
     @Mutation
-    SET_TOKEN(token: any) {
+    public SET_TOKEN(token: any) {
         this.token = token
     }
     @Mutation
-    SET_INTRODUCTION(introduction: any) {
+    public SET_INTRODUCTION(introduction: any) {
         this.introduction = introduction
     }
-    SET_NAME(name: any) {
+    public SET_NAME(name: any) {
         this.name = name
     }
     @Mutation
-    SET_AVATAR(avatar: any) {
+    public SET_AVATAR(avatar: any) {
         this.avatar = avatar
     }
     @Mutation
-    SET_ROLES(roles: any) {
+    public SET_ROLES(roles: any) {
         this.roles = roles
     }
 
     // user login
     @Action
-    login(userInfo: any) {
+    public login(userInfo: any) {
         const { username, password } = userInfo
         return new Promise((resolve, reject) => {
             login({ username: username.trim(), password: password }).then((response: any) => {
@@ -57,7 +57,7 @@ export default class UserOptions extends VuexModule {
 
     // get user info
     @Action
-    getInfo() {
+    public getInfo() {
         return new Promise((resolve, reject) => {
             getUserInfo(this.token).then((response: any) => {
                 const { data } = response
@@ -86,7 +86,7 @@ export default class UserOptions extends VuexModule {
 
     // user logout
     @Action
-    logout() {
+    public logout() {
         return new Promise((resolve, reject) => {
             logout().then(() => {
                 localCache.clear();
@@ -106,7 +106,7 @@ export default class UserOptions extends VuexModule {
 
     // remove token
     @Action
-    resetToken() {
+    public resetToken() {
         return new Promise(resolve => {
             this.SET_TOKEN('');
             this.SET_ROLES([]);
@@ -117,7 +117,7 @@ export default class UserOptions extends VuexModule {
 
     // dynamically modify permissions
     @Action
-    async changeRoles(role: any) {
+    public async changeRoles(role: any) {
         const token = role + '-token'
 
         this.SET_TOKEN(token);

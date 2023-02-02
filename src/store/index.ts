@@ -1,7 +1,7 @@
 import { createLogger, createStore } from 'vuex';
 // import VuexPersist from 'vuex-persist'; // 持续化存储
 import createPersistedState from 'vuex-persistedstate'; // 持续化存储第二种方式
-import * as Cookies from 'js-cookie';
+import getters from './getters';
 
 // // 永久保存数据到localstorage，刷新获取
 // const initVuexPersist = new VuexPersist({
@@ -10,6 +10,7 @@ import * as Cookies from 'js-cookie';
 // });
 
 export default createStore({
+    getters,
     state: {},
     mutations: {},
     actions: {},

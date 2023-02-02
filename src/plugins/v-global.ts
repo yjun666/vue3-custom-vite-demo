@@ -1,18 +1,18 @@
-// import { messageDuration } from '@/config'
-// import * as lodash from 'lodash'
+import { messageDuration } from '@/config'
+import * as lodash from 'lodash'
 // import { Loading, Message, MessageBox, Notification } from 'element-ui'
-// import store from '@/store'
-// import { getToken } from '@/utils/auth'
+import store from '@/store'
+import { getToken } from '@/utils/auth'
 import * as functions from '@/utils/function'
-// import moment from "moment";
+import moment from "moment";
+import { UserModule } from '@/store/modules/user';
 
-// const token = store.getters.token;
-
+const token = UserModule.token;
 const install = (app: any, opts = {}) => {
     /* 全局token */
-    // app.config.globalProperties.$token = () => {
-    //     return token || getToken()
-    // }
+    app.config.globalProperties.$token = () => {
+        return token || getToken()
+    }
 
     // /* 全局Message */
     // app.config.globalProperties.$message = (message: string, type: string) => {
@@ -57,10 +57,10 @@ const install = (app: any, opts = {}) => {
     //     })
     // }
 
-    // /* 全局lodash */
-    // app.config.globalProperties.$lodash = lodash;
-    // /* moment 时间格式化 */
-    // app.config.globalProperties.$moment = moment;
+    /* 全局lodash */
+    app.config.globalProperties.$lodash = lodash;
+    /* moment 时间格式化 */
+    app.config.globalProperties.$moment = moment;
     /* 全局添加utils/function 方法 */
     app.config.globalProperties.$utils = functions;
     console.log(app);
@@ -68,4 +68,5 @@ const install = (app: any, opts = {}) => {
 
 export function setGlobal(app: any) {
     install(app);
+    app.provide('$utils', app.config.globalProperties.$utils);
 }

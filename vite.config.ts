@@ -69,6 +69,9 @@ export default ({ mode }) => {
             }
         },
         server: {
+            hmr: {
+                overlay: true, // false === 关闭浏览器的页面报错弹窗， 报错显示到控制台
+            },
             https: false, // 是否开启 https
             open: false, // 是否自动在浏览器打开
             port: 3000, // 端口号

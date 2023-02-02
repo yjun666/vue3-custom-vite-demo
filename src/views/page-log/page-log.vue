@@ -18,7 +18,6 @@
 
 <script lang="ts" setup>
 import { getCurrentInstance, computed, ref, inject } from 'vue';
-// import { uuid, formatDate, supplement } from '@/utils/function'
 const instance: any = getCurrentInstance();
 const { uuid, formatDate, supplement } = instance.appContext.config.globalProperties.$utils;
 console.log(`import.meta.env.VITE_CUSTOM_TEST===${import.meta.env.VITE_CUSTOM_TEST}`);
